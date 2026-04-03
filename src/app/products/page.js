@@ -302,9 +302,9 @@ export default function ProductsPage() {
         title={editItem ? "Edit Product" : "Add Product"}
         size="md"
       >
-        <div className="space-y-4">
+        <div className="space-y-4 text-black">
           {formErrors.api && (
-            <div className="p-3 bg-red-50 border border-red-200 text-red-600 rounded-lg text-sm">
+            <div className="p-3 bg-red-50 border border-red-200 text-red-600  rounded-lg text-sm">
               {formErrors.api}
             </div>
           )}
@@ -381,6 +381,7 @@ export default function ProductsPage() {
             type="number"
             min="1"
             value={restockQty}
+            className="text-black"
             onChange={(e) => setRestockQty(e.target.value)}
             placeholder="Enter quantity..."
             autoFocus
