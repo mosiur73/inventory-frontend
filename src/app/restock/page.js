@@ -118,13 +118,13 @@ export default function RestockPage() {
                 <table className="w-full text-sm">
                   <thead className="bg-gray-50 border-b border-gray-200">
                     <tr>
-                      <th className="text-left px-5 py-3 text-xs font-medium text-gray-500 uppercase">Product</th>
-                      <th className="text-left px-5 py-3 text-xs font-medium text-gray-500 uppercase">Category</th>
-                      <th className="text-left px-5 py-3 text-xs font-medium text-gray-500 uppercase">Current Stock</th>
-                      <th className="text-left px-5 py-3 text-xs font-medium text-gray-500 uppercase">Min Threshold</th>
-                      <th className="text-left px-5 py-3 text-xs font-medium text-gray-500 uppercase">Priority</th>
-                      <th className="text-left px-5 py-3 text-xs font-medium text-gray-500 uppercase">Status</th>
-                      <th className="text-right px-5 py-3 text-xs font-medium text-gray-500 uppercase">Actions</th>
+                      <th className="text-left px-5 py-3 text-xs font-medium text-gray-900 uppercase">Product</th>
+                      <th className="text-left px-5 py-3 text-xs font-medium text-gray-900 uppercase">Category</th>
+                      <th className="text-left px-5 py-3 text-xs font-medium text-gray-900 uppercase">Current Stock</th>
+                      <th className="text-left px-5 py-3 text-xs font-medium text-gray-900 uppercase">Min Threshold</th>
+                      <th className="text-left px-5 py-3 text-xs font-medium text-gray-900 uppercase">Priority</th>
+                      <th className="text-left px-5 py-3 text-xs font-medium text-gray-900 uppercase">Status</th>
+                      <th className="text-right px-5 py-3 text-xs font-medium text-gray-900 uppercase">Actions</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-100">
