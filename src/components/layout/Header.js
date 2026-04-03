@@ -16,24 +16,24 @@ export default function Header({ onMenuClick, title }) {
   const userRole = mounted ? (user?.role ?? "") : "";
 
   return (
-    <header className="bg-white border-b border-gray-200 px-4 lg:px-6 py-4 flex items-center justify-between">
+    <header className="bg-white border-b border-gray-100 px-4 lg:px-8 py-4 flex items-center justify-between shadow-sm">
       <div className="flex items-center gap-4">
         <button
           onClick={onMenuClick}
-          className="lg:hidden text-gray-500 hover:text-gray-700"
+          className="lg:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors duration-200 text-gray-600"
         >
           <Menu className="w-6 h-6" />
         </button>
-        <h1 className="text-lg font-semibold text-gray-900">{title}</h1>
+        <h1 className="text-2xl font-bold text-gray-900 tracking-tight">{title}</h1>
       </div>
 
-      <div className="flex items-center gap-3">
-        <div className="text-right hidden sm:block">
-          <p className="text-sm font-medium text-gray-900">{userName}</p>
-          <p className="text-xs text-gray-400 capitalize">{userRole}</p>
+      <div className="flex items-center gap-4">
+        <div className="text-right hidden sm:block pr-2 border-r border-gray-200">
+          <p className="text-sm font-semibold text-gray-900">{userName}</p>
+          <p className="text-xs text-gray-500 capitalize mt-0.5">{userRole}</p>
         </div>
-        <div className="w-9 h-9 bg-blue-100 rounded-full flex items-center justify-center">
-          <span className="text-blue-600 font-semibold text-sm">{initial}</span>
+        <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition-shadow duration-200">
+          <span className="text-white font-bold text-sm">{initial}</span>
         </div>
       </div>
     </header>

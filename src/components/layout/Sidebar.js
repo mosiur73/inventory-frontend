@@ -31,24 +31,27 @@ export default function Sidebar({ onClose }) {
   const userRole = mounted ? (user?.role ?? "") : "";
 
   return (
-    <div className="flex flex-col h-full bg-white border-r border-gray-200 w-64">
+    <div className="flex flex-col h-full bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 border-r border-slate-700 w-64">
       {/* Logo */}
-      <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
+      <div className="flex items-center justify-between px-6 py-6 border-b border-slate-700/50">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-            <Package2 className="w-5 h-5 text-white" />
+          <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
+            <Package2 className="w-6 h-6 text-white" />
           </div>
-          <span className="font-bold text-gray-900 text-lg">Inventory</span>
+          <div>
+            <span className="font-bold text-white text-lg block">Inventory</span>
+            <span className="text-xs text-slate-400">Manager</span>
+          </div>
         </div>
         {onClose && (
-          <button onClick={onClose} className="lg:hidden text-gray-400 hover:text-gray-600">
+          <button onClick={onClose} className="lg:hidden text-slate-400 hover:text-slate-200 transition-colors">
             <X className="w-5 h-5" />
           </button>
         )}
       </div>
 
       {/* Nav */}
-      <nav className="flex-1 px-4 py-4 space-y-1 overflow-y-auto">
+      <nav className="flex-1 px-3 py-6 space-y-1 overflow-y-auto">
         {navItems.map(({ href, label, icon: Icon }) => {
           const active = pathname === href;
           return (
@@ -56,33 +59,34 @@ export default function Sidebar({ onClose }) {
               key={href}
               href={href}
               onClick={onClose}
-              className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all ${
+              className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
                 active
-                  ? "bg-blue-50 text-blue-600"
-                  : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                  ? "bg-blue-500/20 text-blue-300 border border-blue-500/30 shadow-md"
+                  : "text-slate-400 hover:text-slate-200 hover:bg-slate-700/50"
               }`}
             >
-              <Icon className={`w-5 h-5 ${active ? "text-blue-600" : "text-gray-400"}`} />
-              {label}
+              <Icon className={`w-5 h-5 flex-shrink-0 transition-colors ${active ? "text-blue-400" : "text-slate-500"}`} />
+              <span className="flex-1">{label}</span>
+              {active && <div className="w-2 h-2 bg-blue-400 rounded-full"></div>}
             </Link>
           );
         })}
       </nav>
 
       {/* User + Logout */}
-      <div className="px-4 py-4 border-t border-gray-100">
-        <div className="flex items-center gap-3 px-3 py-2 mb-2">
-          <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-            <span className="text-blue-600 font-semibold text-sm">{initial}</span>
+      <div className="px-4 py-4 border-t border-slate-700/50">
+        <div className="flex items-center gap-3 px-3 py-3 mb-3 rounded-lg bg-slate-700/30">
+          <div className="w-9 h-9 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center flex-shrink-0 font-semibold text-white text-sm">
+            {initial}
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-medium text-gray-900 truncate">{userName}</p>
-            <p className="text-xs text-gray-400 capitalize">{userRole}</p>
+            <p className="text-sm font-medium text-slate-100 truncate">{userName}</p>
+            <p className="text-xs text-slate-500 capitalize">{userRole}</p>
           </div>
         </div>
         <button
           onClick={logout}
-          className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-red-500 hover:bg-red-50 transition"
+          className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-red-400 hover:bg-red-500/10 hover:text-red-300 transition-colors duration-200"
         >
           <LogOut className="w-5 h-5" />
           Logout

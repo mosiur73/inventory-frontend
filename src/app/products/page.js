@@ -65,7 +65,7 @@ export default function ProductsPage() {
     categoryService.getAll().then((res) => setCategories(res.data || []));
   }, []);
 
-  // ── Handlers ──────────────────────────────────────────────
+  
   const openCreate = () => {
     setEditItem(null);
     setForm(EMPTY_FORM);
@@ -153,7 +153,7 @@ export default function ProductsPage() {
 
   const hasFilters = search || filterCategory || filterStatus;
 
-  // ── Render ─────────────────────────────────────────────────
+
   return (
     <DashboardLayout>
       <div className="space-y-5">
@@ -170,7 +170,7 @@ export default function ProductsPage() {
         </div>
 
         {/* Filters */}
-        <div className="bg-white rounded-xl border border-gray-200 p-4">
+        <div className="bg-white text-black rounded-xl border border-gray-200 p-4">
           <div className="flex flex-wrap gap-3">
             {/* Search */}
             <div className="relative flex-1 min-w-[200px]">
