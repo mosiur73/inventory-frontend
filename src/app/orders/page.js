@@ -73,7 +73,6 @@ export default function OrdersPage() {
       .then((res) => setProducts(res.data?.products || []));
   }, []);
 
-  // ── Create Order ──────────────────────────────────────────
   const openCreate = () => {
     setCustomerName("");
     setOrderItems([{ product: "", quantity: 1 }]);
@@ -140,7 +139,6 @@ export default function OrdersPage() {
     }
   };
 
-  // ── Status Update ─────────────────────────────────────────
   const openStatusUpdate = (order) => {
     setSelectedOrder(order);
     setNewStatus(order.status);
@@ -162,7 +160,6 @@ export default function OrdersPage() {
     }
   };
 
-  // ── View Detail ───────────────────────────────────────────
   const openDetail = (order) => {
     setSelectedOrder(order);
     setDetailModal(true);
@@ -173,7 +170,6 @@ export default function OrdersPage() {
     setStartDate(""); setEndDate(""); setPage(1);
   };
 
-  // ── Render ────────────────────────────────────────────────
   return (
     <DashboardLayout>
       <div className="space-y-5">
@@ -188,7 +184,7 @@ export default function OrdersPage() {
         </div>
 
         {/* Filters */}
-        <div className="bg-white rounded-xl border border-gray-200 p-4">
+        <div className="bg-white text-black rounded-xl border border-gray-200 p-4">
           <div className="flex flex-wrap gap-3">
             <div className="relative flex-1 min-w-[180px]">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -229,15 +225,15 @@ export default function OrdersPage() {
             <>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
-                  <thead className="bg-gray-50 border-b border-gray-200">
+                  <thead className="bg-gray-50 border-b  border-gray-200">
                     <tr>
-                      <th className="text-left px-5 py-3 text-xs font-medium text-gray-500 uppercase">Order #</th>
-                      <th className="text-left px-5 py-3 text-xs font-medium text-gray-500 uppercase">Customer</th>
-                      <th className="text-left px-5 py-3 text-xs font-medium text-gray-500 uppercase">Items</th>
-                      <th className="text-left px-5 py-3 text-xs font-medium text-gray-500 uppercase">Total</th>
-                      <th className="text-left px-5 py-3 text-xs font-medium text-gray-500 uppercase">Status</th>
-                      <th className="text-left px-5 py-3 text-xs font-medium text-gray-500 uppercase">Date</th>
-                      <th className="text-right px-5 py-3 text-xs font-medium text-gray-500 uppercase">Actions</th>
+                      <th className="text-left px-5 py-3 text-xs font-medium text-gray-900 uppercase">Order #</th>
+                      <th className="text-left px-5 py-3 text-xs font-medium text-gray-900 uppercase">Customer</th>
+                      <th className="text-left px-5 py-3 text-xs font-medium text-gray-900 uppercase">Items</th>
+                      <th className="text-left px-5 py-3 text-xs font-medium text-gray-900 uppercase">Total</th>
+                      <th className="text-left px-5 py-3 text-xs font-medium text-gray-900 uppercase">Status</th>
+                      <th className="text-left px-5 py-3 text-xs font-medium text-gray-900 uppercase">Date</th>
+                      <th className="text-right px-5 py-3 text-xs font-medium text-gray-900 uppercase">Actions</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-100">
@@ -281,7 +277,7 @@ export default function OrdersPage() {
 
       {/* ── Create Order Modal ── */}
       <Modal isOpen={createModal} onClose={() => setCreateModal(false)} title="Create New Order" size="lg">
-        <div className="space-y-4">
+        <div className="space-y-4 text-black">
           {createError && (
             <div className="flex items-start gap-2 p-3 bg-red-50 border border-red-200 text-red-600 rounded-lg text-sm">
               <AlertCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />
@@ -468,7 +464,7 @@ export default function OrdersPage() {
             onChange={(e) => { setNewStatus(e.target.value); setCancelReason(""); }}
           >
             {STATUS_OPTIONS.map((s) => (
-              <option key={s} value={s} disabled={
+              <option className="text-black" key={s} value={s} disabled={
                 (selectedOrder?.status === "Shipped" && s === "Pending") ||
                 (selectedOrder?.status === "Delivered" && s !== "Delivered")
               }>{s}</option>
