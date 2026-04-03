@@ -95,17 +95,17 @@ export default function CategoriesPage() {
             <table className="w-full text-sm">
               <thead className="bg-gray-50 border-b border-gray-200">
                 <tr>
-                  <th className="text-left px-5 py-3 text-xs font-medium text-gray-500 uppercase">#</th>
-                  <th className="text-left px-5 py-3 text-xs font-medium text-gray-500 uppercase">Category Name</th>
-                  <th className="text-left px-5 py-3 text-xs font-medium text-gray-500 uppercase">Created By</th>
-                  <th className="text-left px-5 py-3 text-xs font-medium text-gray-500 uppercase">Created At</th>
-                  <th className="text-right px-5 py-3 text-xs font-medium text-gray-500 uppercase">Actions</th>
+                  <th className="text-left px-5 py-3 text-xs font-medium text-gray-900 uppercase">#</th>
+                  <th className="text-left px-5 py-3 text-xs font-medium text-gray-900 uppercase">Category Name</th>
+                  <th className="text-left px-5 py-3 text-xs font-medium text-gray-900 uppercase">Created By</th>
+                  <th className="text-left px-5 py-3 text-xs font-medium text-gray-900 uppercase">Created At</th>
+                  <th className="text-right px-5 py-3 text-xs font-medium text-gray-900 uppercase">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
                 {categories.map((cat, idx) => (
                   <tr key={cat._id} className="hover:bg-gray-50 transition">
-                    <td className="px-5 py-3.5 text-gray-400">{idx + 1}</td>
+                    <td className="px-5 py-3.5 text-gray-900">{idx + 1}</td>
                     <td className="px-5 py-3.5">
                       <div className="flex items-center gap-2">
                         <div className="w-7 h-7 bg-blue-100 rounded-lg flex items-center justify-center">
@@ -152,6 +152,7 @@ export default function CategoriesPage() {
           <Input
             label="Category Name"
             value={name}
+            className="text-black"
             onChange={(e) => { setName(e.target.value); setError(""); }}
             placeholder="e.g. Electronics, Clothing..."
             error={error}
